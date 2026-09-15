@@ -44,8 +44,8 @@ Year                      Month                     Date
   the next open.
 - **Localized UI text** — English and Spanish resources, with format-pane
   overrides.
-- **Power BI Report Server** as a design goal — `apiVersion 5.3.0`, no APIs
-  newer than the September 2023 Report Server release.
+- **Power BI Report Server support** — tested end-to-end; `apiVersion 5.3.0`,
+  no APIs newer than the September 2023 Report Server release.
 - **No helper DAX** — no measures, no auxiliary tables, no per-instance flags.
 
 ## Quick start
@@ -116,8 +116,11 @@ selected value falls back to *All*.
 
 ## Power BI Report Server
 
-Report Server compatibility is a primary design goal of this visual.
+AutoDefaultSlicer has been tested end-to-end with Power BI Report Server.
 
+- **Tested with:** Power BI Desktop, Power BI Desktop for Power BI Report
+  Server, and Power BI Report Server (rendering, filtering, default selection,
+  Multi modes, and publishing).
 - **apiVersion:** `5.3.0`. Every Power BI Report Server release since
   September 2023 ships a Custom Visual API of 5.4.0 or newer (5.10.0 from
   September 2024 onward), so the API surface this visual uses is available on
@@ -126,13 +129,9 @@ Report Server compatibility is a primary design goal of this visual.
   on by default), and the report authored in *Power BI Desktop optimized for
   Power BI Report Server*. The visual travels inside the `.pbix`; nothing is
   installed on the server itself.
-- **Tested with:** Power BI Desktop.
-- **Pending validation:** an end-to-end run on a specific Power BI Report Server
-  build. The visual avoids everything known not to work on Report Server (no
-  modal dialogs, no external resources, no APIs newer than 5.3.0), and the
-  packaged bundle is exercised by tests, but a report published to a Report
-  Server has not yet been verified by the maintainers. Reports of success or
-  failure on a given build are welcome as issues.
+- **Design constraints kept for Report Server:** no modal dialogs, no external
+  resources, no APIs newer than 5.3.0; the packaged bundle is exercised by tests
+  on every build.
 
 See [docs/report-server.md](docs/report-server.md) for the version table and the
 reasoning behind the API choice.

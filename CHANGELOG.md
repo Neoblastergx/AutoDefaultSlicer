@@ -28,7 +28,9 @@ First public release.
 - Session-scoped selection; nothing persisted with `persistProperties`.
 - Localized UI text (en-US, es-ES) through the host localization manager with
   an in-code fallback.
-- `apiVersion 5.3.0` for Power BI Report Server (September 2023 and later).
+- `apiVersion 5.3.0` for Power BI Report Server (September 2023 and later);
+  tested end-to-end with Power BI Desktop, Power BI Desktop for Report Server
+  and Power BI Report Server.
 - Test suites over the sources and over the packaged `.pbiviz`.
 
 ## [1.8.0] - 2026-09-15 (unpublished)

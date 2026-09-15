@@ -29,7 +29,7 @@ Thanks for taking the time to contribute.
 ## Guidelines
 
 - Do not use an API newer than `powerbi-visuals-api` 5.3.0; Power BI Report
-  Server compatibility is a design goal (see
+  Server compatibility is a requirement of this project (see
   [docs/report-server.md](docs/report-server.md)).
 - Do not add a custom popup, a modal dialog, or anything that draws outside the
   visual; the reasons are in [docs/behavior.md](docs/behavior.md).

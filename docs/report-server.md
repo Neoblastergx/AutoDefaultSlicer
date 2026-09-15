@@ -1,18 +1,19 @@
 # Power BI Report Server
 
-Report Server compatibility is a primary design goal of AutoDefaultSlicer.
+AutoDefaultSlicer is built for Power BI Report Server and has been tested
+end-to-end with it.
 
 ## Status
 
 | Environment | Status |
 | --- | --- |
 | Power BI Desktop | tested |
-| Power BI Desktop optimized for Power BI Report Server | expected to work (same runtime, API within range); not separately verified by the maintainers |
-| Power BI Report Server | design goal; end-to-end validation on a specific server build is pending |
+| Power BI Desktop optimized for Power BI Report Server | tested |
+| Power BI Report Server | tested end-to-end: rendering, filtering, default selection, Multi Dropdown and List, publishing |
 | Power BI Service | expected to work; not a target of this project |
 
-Reports of success or failure on a specific Report Server build are welcome as
-issues — please include the server version from the changelog table below.
+If you hit a problem on a specific Report Server build, please open an issue and
+include the server version from the changelog table below.
 
 ## API version
 
