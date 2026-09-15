@@ -1,0 +1,63 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: input
+    id: desktop-version
+    attributes:
+      label: Power BI Desktop version
+      description: Help → About. Say whether it is the regular edition or the one optimized for Report Server.
+      placeholder: "2.138.2255.0 (optimized for Report Server)"
+    validations:
+      required: true
+  - type: input
+    id: server-version
+    attributes:
+      label: Power BI Report Server version (if applicable)
+      description: From the server's changelog entry, e.g. "January 2025, 1.22.9153.7886".
+  - type: input
+    id: visual-version
+    attributes:
+      label: Visual version
+      description: From the release you installed, e.g. "1.9.0".
+    validations:
+      required: true
+  - type: dropdown
+    id: selection-mode
+    attributes:
+      label: Selection mode
+      options:
+        - Single
+        - Single or All
+        - Multi (Dropdown)
+        - Multi (List)
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Relevant settings
+      description: Default selection, Default behavior, Sort By field bound or not, and anything else you changed.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Bind Calendar[Year] to Value
+        2. Set Default selection = Max
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include a screenshot if it helps. Please remove any real data first.
+    validations:
+      required: true

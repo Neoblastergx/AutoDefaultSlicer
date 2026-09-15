@@ -1,0 +1,25 @@
+{
+  "visual": {
+    "name": "autoDefaultSlicer",
+    "displayName": "AutoDefaultSlicer",
+    "guid": "autoDefaultSlicer0BB6EB2842CDBC52BC8D90AE80E9B7ED",
+    "visualClassName": "Visual",
+    "version": "1.9.0.0",
+    "description": "A native-like Power BI slicer with dynamic default selection (Max / Min / None), Single / Single-or-All / Multi modes, Sort By support, and Power BI Report Server compatibility.",
+    "supportUrl": "https://github.com/Neoblastergx/AutoDefaultSlicer/issues",
+    "gitHubUrl": "https://github.com/Neoblastergx/AutoDefaultSlicer"
+  },
+  "apiVersion": "5.3.0",
+  "author": {
+    "name": "Neoblastergx",
+    "email": "Neoblastergx@users.noreply.github.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": null,
+  "stringResources": []
+}

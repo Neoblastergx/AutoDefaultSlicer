@@ -1,0 +1,350 @@
+{
+  "privileges": [],
+  "supportsHighlight": false,
+  "supportsKeyboardFocus": true,
+  "supportsLandingPage": false,
+  "supportsSynchronizingFilterState": true,
+  "suppressDefaultTitle": true,
+  "dataRoles": [
+    {
+      "displayName": "Value",
+      "name": "value",
+      "kind": "Grouping",
+      "description": "Column shown in the slicer and used to filter the model. Exactly one column."
+    },
+    {
+      "displayName": "Sort By",
+      "name": "sortBy",
+      "kind": "Grouping",
+      "description": "Optional. Used only to order the items and to resolve the Max / Min default. At most one column."
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "value": {
+            "min": 1,
+            "max": 1
+          },
+          "sortBy": {
+            "min": 0,
+            "max": 1
+          }
+        }
+      ],
+      "categorical": {
+        "categories": {
+          "select": [
+            {
+              "for": {
+                "in": "value"
+              }
+            },
+            {
+              "for": {
+                "in": "sortBy"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "top": {
+              "count": 30000
+            }
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "general": {
+      "properties": {
+        "filter": {
+          "type": {
+            "filter": {}
+          }
+        }
+      }
+    },
+    "selection": {
+      "displayName": "Selection",
+      "properties": {
+        "selectionMode": {
+          "displayName": "Selection mode",
+          "type": {
+            "enumeration": [
+              {
+                "value": "single",
+                "displayName": "Single"
+              },
+              {
+                "value": "multi",
+                "displayName": "Multi"
+              },
+              {
+                "value": "singleOrAll",
+                "displayName": "Single or All"
+              }
+            ]
+          }
+        },
+        "multiDisplay": {
+          "displayName": "Multi display",
+          "type": {
+            "enumeration": [
+              {
+                "value": "dropdown",
+                "displayName": "Dropdown"
+              },
+              {
+                "value": "list",
+                "displayName": "List"
+              }
+            ]
+          }
+        },
+        "visibleRows": {
+          "displayName": "Visible rows",
+          "type": {
+            "numeric": true
+          }
+        },
+        "defaultSelection": {
+          "displayName": "Default selection",
+          "type": {
+            "enumeration": [
+              {
+                "value": "none",
+                "displayName": "None"
+              },
+              {
+                "value": "max",
+                "displayName": "Max"
+              },
+              {
+                "value": "min",
+                "displayName": "Min"
+              }
+            ]
+          }
+        },
+        "defaultBehavior": {
+          "displayName": "Default behavior",
+          "type": {
+            "enumeration": [
+              {
+                "value": "onLoad",
+                "displayName": "On Load"
+              },
+              {
+                "value": "onlyWhenEmpty",
+                "displayName": "Only When Empty"
+              }
+            ]
+          }
+        },
+        "showSelectAll": {
+          "displayName": "Show Select All",
+          "type": {
+            "bool": true
+          }
+        },
+        "selectAllLabel": {
+          "displayName": "Select All label",
+          "type": {
+            "text": true
+          }
+        },
+        "multiSelectionLabel": {
+          "displayName": "Multi selection label",
+          "type": {
+            "text": true
+          }
+        },
+        "clearBehavior": {
+          "displayName": "Clear behavior",
+          "type": {
+            "enumeration": [
+              {
+                "value": "default",
+                "displayName": "Default"
+              },
+              {
+                "value": "all",
+                "displayName": "All"
+              },
+              {
+                "value": "none",
+                "displayName": "None"
+              }
+            ]
+          }
+        },
+        "sortDirection": {
+          "displayName": "Sort direction",
+          "type": {
+            "enumeration": [
+              {
+                "value": "desc",
+                "displayName": "Descending"
+              },
+              {
+                "value": "asc",
+                "displayName": "Ascending"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "header": {
+      "displayName": "Slicer header",
+      "properties": {
+        "show": {
+          "displayName": "Show header",
+          "type": {
+            "bool": true
+          }
+        },
+        "text": {
+          "displayName": "Title text",
+          "type": {
+            "text": true
+          }
+        },
+        "fontFamily": {
+          "displayName": "Font family",
+          "type": {
+            "formatting": {
+              "fontFamily": true
+            }
+          }
+        },
+        "fontSize": {
+          "displayName": "Text size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "bold": {
+          "displayName": "Bold",
+          "type": {
+            "bool": true
+          }
+        },
+        "italic": {
+          "displayName": "Italic",
+          "type": {
+            "bool": true
+          }
+        },
+        "fontColor": {
+          "displayName": "Font color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "showClear": {
+          "displayName": "Show clear button",
+          "type": {
+            "bool": true
+          }
+        }
+      }
+    },
+    "control": {
+      "displayName": "Slicer box",
+      "properties": {
+        "fontFamily": {
+          "displayName": "Font family",
+          "type": {
+            "formatting": {
+              "fontFamily": true
+            }
+          }
+        },
+        "fontSize": {
+          "displayName": "Text size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "fontColor": {
+          "displayName": "Font color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "background": {
+          "displayName": "Background",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "showBorder": {
+          "displayName": "Show border",
+          "type": {
+            "bool": true
+          }
+        },
+        "borderColor": {
+          "displayName": "Border color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "borderRadius": {
+          "displayName": "Border radius",
+          "type": {
+            "numeric": true
+          }
+        }
+      }
+    },
+    "dropdown": {
+      "displayName": "Dropdown list",
+      "properties": {
+        "background": {
+          "displayName": "Background",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "fontColor": {
+          "displayName": "Font color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

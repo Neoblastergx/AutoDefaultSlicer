@@ -1,0 +1,194 @@
+// Auto Default Slicer
+//
+// The list is a native <select> in every Selection mode. Its option popup is
+// drawn by the browser outside the document, so it is not clipped by the
+// visual's iframe - that is the whole point. Only the closed control is styled
+// here, with `appearance: none`, which changes nothing about how the popup
+// opens.
+//
+// Colours come from the format pane at runtime, so almost nothing is
+// hard-coded below - only geometry.
+
+@nativeFont: "Segoe UI", wf_segoe-ui_normal, helvetica, arial, sans-serif;
+
+.ads-container {
+    width: 100%;
+    height: 100%;
+    // The <select> popup is not a DOM node, so this does not clip it.
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.ads-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2px 2px 0 2px;
+    font-family: @nativeFont;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+}
+
+// --- Header -----------------------------------------------------------------
+
+.ads-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    min-height: 16px;
+    margin-bottom: 3px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.ads-title {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.35;
+}
+
+.ads-clear {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.35;
+    border-radius: 2px;
+
+    &.ads-clear-active {
+        opacity: 0.75;
+    }
+
+    &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.06);
+    }
+
+    &:focus-visible {
+        outline: 1px solid currentColor;
+        outline-offset: 1px;
+    }
+}
+
+// --- The select -------------------------------------------------------------
+
+.ads-select-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    display: block;
+    min-width: 0;
+}
+
+.ads-select {
+    // Removes the platform widget chrome from the CLOSED control only.
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    // Right padding leaves room for the chevron we draw ourselves.
+    padding: 2px 22px 2px 6px;
+    min-height: 22px;
+    margin: 0;
+    font: inherit;
+    line-height: 1.35;
+    cursor: pointer;
+    outline: none;
+    text-overflow: ellipsis;
+    // Firefox keeps a dotted focus ring inside the control without this.
+    text-indent: 0.01px;
+
+    &:focus-visible {
+        outline: 1px solid currentColor;
+        outline-offset: -2px;
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+// Multi mode keeps its closed-box text in a hidden option. `hidden` already
+// removes it from the list in every browser we target; this is belt and braces.
+.ads-display-option {
+    display: none;
+}
+
+.ads-chevron {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 7px;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.75;
+    // Clicks must reach the <select> underneath.
+    pointer-events: none;
+}
+
+// --- High contrast ----------------------------------------------------------
+
+.ads-root.ads-hc {
+    .ads-select {
+        forced-color-adjust: none;
+    }
+
+    .ads-clear {
+        opacity: 1;
+    }
+}
+
+@media (forced-colors: active) {
+    .ads-select {
+        border-color: CanvasText;
+    }
+}
+
+// --- Multi + List: a native list box -----------------------------------------
+// select.size is Visible rows; flex lets it shrink and scroll when the visual
+// is shorter than that, without growing past it when the visual is taller.
+
+.ads-select-wrap-list {
+    display: flex;
+    flex: 0 1 auto;
+    min-height: 0;
+}
+
+.ads-select-list {
+    // The list box keeps the platform look: highlighted rows, no chevron.
+    appearance: auto;
+    -webkit-appearance: listbox;
+    -moz-appearance: listbox;
+    flex: 0 1 auto;
+    min-height: 0;
+    padding: 2px 0;
+    overflow-y: auto;
+    cursor: default;
+
+    option {
+        padding: 2px 6px;
+        // A row is one line; long values get an ellipsis via the option title.
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

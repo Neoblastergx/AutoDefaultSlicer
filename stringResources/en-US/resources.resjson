@@ -1,0 +1,8 @@
+{
+  "Visual_SelectAll": "All",
+  "Visual_MultiSelected": "{0} selected",
+  "Visual_AddFieldToValue": "Add a field to Value",
+  "Visual_ClearSelection": "Clear selection",
+  "Visual_MoreItems": "+{0} more",
+  "Visual_NoData": "No data"
+}
